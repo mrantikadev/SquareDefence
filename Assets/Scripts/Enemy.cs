@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int damage = 5;
     [SerializeField] private float speed = 2f;
 
+    public event EventHandler OnDeath;
+    
     private void Update()
     {
         transform.Translate(Vector3.down * speed * Time.deltaTime);
@@ -27,23 +30,25 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the enemy collides with a turret
         if (collision.gameObject.CompareTag("Turret"))
         {
-            // Deal damage to the turret
             Turret turret = collision.gameObject.GetComponent<Turret>();
+
             if (turret != null)
             {
                 turret.TakeDamage(damage);
             }
-            // Destroy the enemy after collision
-            Destroy(gameObject);
+
+            Die();
+            return;
         }
+
+        Die();
     }
 
     private void Die()
     {
-        // Handle enemy death (e.g., play animation, drop loot, etc.)
+        OnDeath?.Invoke(this, EventArgs.Empty);
         Destroy(gameObject);
     }
 }
