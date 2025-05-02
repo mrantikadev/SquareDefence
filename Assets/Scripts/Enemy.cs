@@ -6,6 +6,12 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int health = 20;
     [SerializeField] private int damage = 5;
+    [SerializeField] private float speed = 2f;
+
+    private void Update()
+    {
+        transform.Translate(Vector3.down * speed * Time.deltaTime);
+    }
 
     public void TakeDamage(int damage)
     {

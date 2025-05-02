@@ -9,19 +9,36 @@ public class Turret : MonoBehaviour
     [SerializeField] private Transform muzzlePosition;
     [SerializeField] private Transform bulletPrefab;
     [SerializeField] private float fireCooldown = 1f;
+    [SerializeField] private float rotationSpeed = 5f;
 
     private float fireTimer;
     private List<Enemy> enemiesInRange = new List<Enemy>();
+    private Quaternion defaultRotation;
+
+    private void Awake()
+    {
+        defaultRotation = transform.rotation;
+    }
 
     private void Update()
     {
         fireTimer -= Time.deltaTime;
 
         Enemy closestEnemy = GetClosestEnemy();
-        if (closestEnemy != null && fireTimer <= 0f)
+
+        if (closestEnemy != null)
         {
-            FireProjectile(closestEnemy);
-            fireTimer = fireCooldown;
+            RotateTowards(closestEnemy.transform.position);
+
+            if (fireTimer <= 0)
+            {
+                FireProjectile(closestEnemy);
+                fireTimer = fireCooldown;
+            }
+        }
+        else
+        {
+            RotateToDefault();
         }
     }
 
@@ -56,6 +73,20 @@ public class Turret : MonoBehaviour
         return enemiesInRange
             .OrderBy(e => Vector2.Distance(transform.position, e.transform.position))
             .FirstOrDefault();
+    }
+
+    private void RotateTowards(Vector3 targetPosition)
+    {
+        Vector3 direction = targetPosition - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle - 90f);
+        Debug.DrawRay(transform.position, direction, Color.red);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    private void RotateToDefault()
+    {
+        transform.rotation = Quaternion.Lerp(transform.rotation, defaultRotation, rotationSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
