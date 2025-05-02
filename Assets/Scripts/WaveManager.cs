@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private int baseEnemiesPerWave = 5;
     [SerializeField] private int enemyIncreasePerWave = 2;
     [SerializeField] private float timeBetweenEnemies = 0.5f;
+    [SerializeField] private TMP_Text enemyCountText;
+    [SerializeField] private TMP_Text waveCountText;
 
     private int currentWave = 0;
     private int aliveEnemies = 0;
@@ -19,6 +22,8 @@ public class WaveManager : MonoBehaviour
 
     private void Awake()
     {
+        waveCountText.text = $"Wave: {currentWave}";
+        enemyCountText.text = $"Remaining Enemies: {enemiesPerWave}";
         startWaveButton.gameObject.SetActive(true);
         startWaveButton.onClick.AddListener(StartWave);
     }
@@ -27,6 +32,9 @@ public class WaveManager : MonoBehaviour
     {
         currentWave++;
         enemiesPerWave = baseEnemiesPerWave + (enemyIncreasePerWave * (currentWave - 1));
+
+        waveCountText.text = $"Wave: {currentWave}";
+        enemyCountText.text = $"Remaining Enemies: {enemiesPerWave}";
 
         startWaveButton.gameObject.SetActive(false);
         StartCoroutine(SpawnWave());
@@ -57,7 +65,7 @@ public class WaveManager : MonoBehaviour
     private void OnEnemyKilled(object sender, System.EventArgs e)
     {
         aliveEnemies--;
-
+        enemyCountText.text = $"Remaining Enemies: {aliveEnemies}";
         if (aliveEnemies <= 0)
         {
             isWaveActive = false;

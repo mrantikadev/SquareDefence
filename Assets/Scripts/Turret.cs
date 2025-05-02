@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    [SerializeField] private int health = 100;
     [SerializeField] private Transform muzzlePosition;
     [SerializeField] private Transform bulletPrefab;
+    [SerializeField] private int health = 100;
     [SerializeField] private float fireCooldown = 1f;
     [SerializeField] private float rotationSpeed = 5f;
 

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -13,7 +10,7 @@ public class Bullet : MonoBehaviour
     {
         if (target == null)
         {
-            Destroy(gameObject); // Destroy the bullet if no target is set
+            Destroy(gameObject);
             return;
         }
 
@@ -21,11 +18,6 @@ public class Bullet : MonoBehaviour
         transform.Translate(direction * speed * Time.deltaTime);
 
         Destroy(gameObject, 5f);
-    }
-
-    public void SetTarget(Transform target)
-    {
-        this.target = target;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,5 +32,9 @@ public class Bullet : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
     }
 }
