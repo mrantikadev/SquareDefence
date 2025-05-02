@@ -9,6 +9,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private Button startWaveButton;
     [SerializeField] private int enemiesPerWave = 5;
+    [SerializeField] private int baseEnemiesPerWave = 5;
+    [SerializeField] private int enemyIncreasePerWave = 2;
     [SerializeField] private float timeBetweenEnemies = 0.5f;
 
     private int currentWave = 0;
@@ -24,6 +26,8 @@ public class WaveManager : MonoBehaviour
     private void StartWave()
     {
         currentWave++;
+        enemiesPerWave = baseEnemiesPerWave + (enemyIncreasePerWave * (currentWave - 1));
+
         startWaveButton.gameObject.SetActive(false);
         StartCoroutine(SpawnWave());
     }
