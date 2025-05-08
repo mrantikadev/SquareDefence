@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8369815229014908183}
   - component: {fileID: 8369815229014908180}
-  - component: {fileID: 8369815229014908181}
   - component: {fileID: 8369815229014908186}
   - component: {fileID: 8369815229014908182}
+  - component: {fileID: 7199656485221658672}
   m_Layer: 8
   m_Name: pfEnemy
   m_TagString: Enemy
@@ -87,20 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8369815229014908181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8369815229014908187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 550088292e7c09444b6d5558cd655e05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 20
-  damage: 5
 --- !u!61 &8369815229014908186
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,3 +134,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7199656485221658672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369815229014908187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919171bf5419e9849bad1c34f5fd0e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: da84d1a6877334b46956b2333ac95d41, type: 2}
