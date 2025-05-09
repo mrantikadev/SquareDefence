@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +6,8 @@ using UnityEngine;
 
 public abstract class Turret : MonoBehaviour, ITurret
 {
+    public static event Action OnTurretDestroyed;
+
     [SerializeField] protected TurretSO type;
 
     protected List<BaseEnemy> enemiesInRange = new List<BaseEnemy>();
@@ -13,12 +16,15 @@ public abstract class Turret : MonoBehaviour, ITurret
 
     private void Awake()
     {
+        GameManager.Instance.RegisterNewTurret();
+        Debug.Log("RegisterNewTurret metodu - Turret");
         currentHealth = type.HitPoint;
         defaultRotation = transform.rotation;
     }
 
     public void Die()
     {
+        OnTurretDestroyed?.Invoke();
         Destroy(gameObject);
     }
 
@@ -35,7 +41,6 @@ public abstract class Turret : MonoBehaviour, ITurret
 
         if (enemiesInRange.Count == 0) return null;
 
-        Debug.Log("Enemies in range: " + enemiesInRange.Count);
         return enemiesInRange
             .OrderBy(enemy => Vector2.Distance(transform.position, enemy.transform.position))
             .FirstOrDefault();
