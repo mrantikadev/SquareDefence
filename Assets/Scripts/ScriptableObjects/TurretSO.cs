@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "BaseTurret", menuName = "Entities/Turrets/BaseTurret")]
 public class TurretSO : EntitySO
 {
     [SerializeField] private float bulletSpeed;
