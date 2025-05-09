@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710ef627408effe448488766378900eb, type: 3}
   m_Name: BaseEnemy
   m_EditorClassIdentifier: 
-  nameString: 
-  description: 
-  prefab: {fileID: 0}
-  hitPoint: 0
-  damage: 0
+  nameString: Base Enemy
+  description: Most basic enemy.
+  prefab: {fileID: 8369815229014908187, guid: 9fe0e58ed0fd7b54b9151f52dd24cb7d, type: 3}
+  hitPoint: 20
+  damage: 10
+  speed: 3
