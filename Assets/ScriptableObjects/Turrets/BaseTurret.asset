@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b10d7a31239b34189e90d91e1c177c, type: 3}
+  m_Name: BaseTurret
+  m_EditorClassIdentifier: 
+  turretName: Base Turret
+  description: Most basic turret ever.
+  turretPrefab: {fileID: 7091075062655565743, guid: af590f2bc887f0046aa97583046dac27, type: 3}
+  fireRange: 3
+  fireRate: 0.3
+  bulletType: {fileID: 11400000, guid: 85d8130cc071a2f478ae4fd35bdf911e, type: 2}
+  hitPoints: 20
+  rotationSpeed: 360
