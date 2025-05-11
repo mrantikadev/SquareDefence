@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b10d7a31239b34189e90d91e1c177c, type: 3}
   m_Name: BaseTurret
   m_EditorClassIdentifier: 
-  nameString: 
-  description: 
-  prefab: {fileID: 0}
-  hitPoint: 0
-  bulletSpeed: 0
-  bulletDamage: 0
-  fireRange: 0
-  fireCooldown: 0
-  projectilePrefab: {fileID: 0}
-  rotationSpeed: 0
+  nameString: Base Turret
+  description: Most basic turret.
+  prefab: {fileID: 8506694952198369713, guid: c93a50ab9fcf1f144a7743131978c90e, type: 3}
+  hitPoint: 100
+  bulletSpeed: 30
+  bulletDamage: 10
+  fireRange: 6
+  fireCooldown: 0.3
+  projectilePrefab: {fileID: 5919591111781246740, guid: 44bc365e4bb6cb744b3bc171cb900fa4, type: 3}
+  rotationSpeed: 150
