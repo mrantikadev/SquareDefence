@@ -7,6 +7,7 @@ public class Turret : MonoBehaviour
 {
     [SerializeField] private TurretSO turretType;
     [SerializeField] private Transform muzzlePosition;
+    [SerializeField] private EnemyDetector enemyDetector;
 
     protected List<Enemy> enemiesInRange = new List<Enemy>();
     protected Quaternion defaultRotation;
@@ -16,7 +17,7 @@ public class Turret : MonoBehaviour
 
     private void Awake()
     {
-        GetComponent<CircleCollider2D>().radius = turretType.FireRange;
+        GetComponentInChildren<CircleCollider2D>().radius = turretType.FireRange;
         currentHitPoints = turretType.HitPoints;
         defaultRotation = transform.rotation;
     }
@@ -24,6 +25,8 @@ public class Turret : MonoBehaviour
     private void Update()
     {
         fireRate -= Time.deltaTime;
+
+        CleanDeadEnemies();
 
         Enemy closestEnemy = GetClosestEnemy();
 
@@ -43,30 +46,43 @@ public class Turret : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnEnable()
     {
-        if (collision.CompareTag("Enemy"))
+        if (enemyDetector != null)
         {
-            Enemy enemy = collision.GetComponent<Enemy>();
-
-            if (enemy != null && !enemiesInRange.Contains(enemy))
-            {
-                enemiesInRange.Add(enemy);
-            }
+            enemyDetector.OnEnemyEnter += OnEnemyEnter;
+            enemyDetector.OnEnemyExit += OnEnemyExit;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnDisable()
     {
-        if (collision.CompareTag("Enemy"))
+        if (enemyDetector != null)
         {
-            Enemy enemy = collision.GetComponent<Enemy>();
-
-            if (enemy != null && enemiesInRange.Contains(enemy))
-            {
-                enemiesInRange.Remove(enemy);
-            }
+            enemyDetector.OnEnemyEnter -= OnEnemyEnter;
+            enemyDetector.OnEnemyExit -= OnEnemyExit;
         }
+    }
+
+    private void OnEnemyEnter(Enemy enemy)
+    {
+        if (!enemiesInRange.Contains(enemy))
+        {
+            enemiesInRange.Add(enemy);
+        }
+    }
+
+    private void OnEnemyExit(Enemy enemy)
+    {
+        if (enemiesInRange.Contains(enemy))
+        {
+            enemiesInRange.Remove(enemy);
+        }
+    }
+
+    private void CleanDeadEnemies()
+    {
+        enemiesInRange.RemoveAll(enemy => enemy == null);
     }
 
     public void FireAt(Enemy target)
@@ -78,8 +94,6 @@ public class Turret : MonoBehaviour
 
     public Enemy GetClosestEnemy()
     {
-        enemiesInRange = enemiesInRange.Where(enemy => enemy != null).ToList();
-
         if (enemiesInRange.Count == 0) return null;
 
         return enemiesInRange
