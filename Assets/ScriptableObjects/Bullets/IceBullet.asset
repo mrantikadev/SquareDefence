@@ -13,13 +13,16 @@ MonoBehaviour:
   m_Name: IceBullet
   m_EditorClassIdentifier: 
   bulletName: Ice Bullet
-  bulletPrefab: {fileID: 4114474432794314828, guid: 3e744c5a10f53b54b988776988b39261, type: 3}
+  bulletPrefab: {fileID: 4114474432794314828, guid: 1bdae0dc3fbfde248988eba933fb58c6, type: 3}
   speed: 20
   damage: 5
   bulletEffects:
-  - rid: -2
+  - rid: 2842009139137478656
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 2842009139137478656
+      type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
+      data:
+        slowAmount: 0.5
+        slowDuration: 2

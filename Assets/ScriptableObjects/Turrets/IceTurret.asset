@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretName: Ice Turret
   description: Slows down enemies on hit.
-  turretPrefab: {fileID: 0}
+  turretPrefab: {fileID: 7091075062655565743, guid: 19b61aa23bf8574478bb4cb473f5289c, type: 3}
   fireRange: 3
   fireRate: 1
   bulletType: {fileID: 11400000, guid: ccfa1c665fb401b44afcabc2747eb8b1, type: 2}
