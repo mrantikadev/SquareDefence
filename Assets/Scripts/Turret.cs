@@ -56,11 +56,24 @@ public class Turret : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Enemy enemy = collision.GetComponent<Enemy>();
+
+            if (enemy != null && enemiesInRange.Contains(enemy))
+            {
+                enemiesInRange.Remove(enemy);
+            }
+        }
+    }
+
     public void FireAt(Enemy target)
     {
         RotateTowards(target.transform.position);
         GameObject bullet = Instantiate(turretType.BulletType.BulletPrefab, muzzlePosition.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().Initialize(target);
+        bullet.GetComponent<Bullet>().Initialize(target, turretType.BulletType);
     }
 
     public Enemy GetClosestEnemy()

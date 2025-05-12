@@ -25,14 +25,20 @@ public class Bullet : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(bulletType.Damage);
+
+                foreach (var effect in bulletType.BulletEffects)
+                {
+                    effect.Apply(enemy);
+                }
             }
 
             Destroy(gameObject);
         }
     }
 
-    public void Initialize(Enemy target)
+    public void Initialize(Enemy target, BulletSO bulletType)
     {
         this.target = target;
+        this.bulletType = bulletType;
     }
 }
