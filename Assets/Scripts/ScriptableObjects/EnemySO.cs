@@ -9,6 +9,7 @@ public class EnemySO : ScriptableObject
     [SerializeField] [TextArea] private string description;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float speed;
+    [SerializeField] private float rotationSpeed;
     [SerializeField] private float hitPoints;
     [SerializeField] private float damage;
 
@@ -16,6 +17,7 @@ public class EnemySO : ScriptableObject
     public string Description => description;
     public GameObject EnemyPrefab => enemyPrefab;
     public float Speed => speed;
+    public float RotationSpeed => rotationSpeed;
     public float HitPoints => hitPoints;
     public float Damage => damage;
 }

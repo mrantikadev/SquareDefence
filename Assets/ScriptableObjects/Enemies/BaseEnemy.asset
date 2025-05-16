@@ -16,5 +16,6 @@ MonoBehaviour:
   description: Most basic enemy.
   enemyPrefab: {fileID: 2489419663666579726, guid: e376200bbc49c79418592330b3bfcbaa, type: 3}
   speed: 5
+  rotationSpeed: 90
   hitPoints: 20
   damage: 10
