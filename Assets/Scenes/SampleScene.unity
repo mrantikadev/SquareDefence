@@ -697,7 +697,7 @@ MonoBehaviour:
   enemiesToSpawnList:
   - {fileID: 2489419663666579726, guid: e376200bbc49c79418592330b3bfcbaa, type: 3}
   spawnRangeX: 2.5
-  spawnInterval: 0.75
+  spawnInterval: 0.55
 --- !u!4 &842162738
 Transform:
   m_ObjectHideFlags: 0
