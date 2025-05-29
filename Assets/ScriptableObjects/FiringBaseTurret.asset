@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: FiringBaseTurret
   m_EditorClassIdentifier: 
   nameString: Firing Base Turret
-  fireRate: 0.5
+  fireRate: 10
   damage: 5
   range: 6
-  turretPrefab: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  effect: {fileID: 0}
-  behavior: {fileID: 0}
+  turretPrefab: {fileID: 1069243279930931281, guid: 0e7259e7da2327b45a438f75ae896a5d, type: 3}
+  bulletPrefab: {fileID: 7881371968590758442, guid: 6eef27b5a0665dd409b34e2b6a6567e0, type: 3}
+  effect: {fileID: 11400000, guid: a2a203862d4733f4298715f174c0f640, type: 2}
+  behavior: {fileID: 11400000, guid: 5443869b27d6c6c439f2e8a8e41cde3f, type: 2}
