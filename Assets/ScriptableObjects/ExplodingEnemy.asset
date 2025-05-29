@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc0e11bbd8be7042b3221d6db4d7ffb, type: 3}
   m_Name: ExplodingEnemy
   m_EditorClassIdentifier: 
+  nameString: Exploding Enemy
   health: 10
   speed: 5
   prefab: {fileID: 7903835049651633053, guid: c97f2661be003bb488807cfa7e164409, type: 3}

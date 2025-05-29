@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81d5bf963c3141b42b1b1b4c30cb1909, type: 3}
-  m_Name: FiringBaseTurret
+  m_Name: PyroTurret
   m_EditorClassIdentifier: 
   nameString: Firing Base Turret
   fireRate: 10
   damage: 5
   range: 6
+  bulletSpeed: 30
   turretPrefab: {fileID: 1069243279930931281, guid: 0e7259e7da2327b45a438f75ae896a5d, type: 3}
   bulletPrefab: {fileID: 7881371968590758442, guid: 6eef27b5a0665dd409b34e2b6a6567e0, type: 3}
   effect: {fileID: 11400000, guid: a2a203862d4733f4298715f174c0f640, type: 2}

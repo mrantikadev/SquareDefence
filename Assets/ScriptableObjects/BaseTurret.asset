@@ -16,6 +16,7 @@ MonoBehaviour:
   fireRate: 0.5
   damage: 5
   range: 8
+  bulletSpeed: 30
   turretPrefab: {fileID: 1069243279930931281, guid: f5fe8a6ab1f74504896a21e180da716f, type: 3}
   bulletPrefab: {fileID: 7881371968590758442, guid: 6eef27b5a0665dd409b34e2b6a6567e0, type: 3}
   effect: {fileID: 0}

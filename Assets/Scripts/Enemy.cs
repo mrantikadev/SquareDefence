@@ -12,6 +12,14 @@ public class Enemy : MonoBehaviour
         currentHealth = config.Health;
     }
 
+    private void Update()
+    {
+        if (transform.position.y <= -20)
+        {
+            Die();
+        }
+    }
+
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;

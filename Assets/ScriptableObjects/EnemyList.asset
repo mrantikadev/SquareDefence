@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdc0e11bbd8be7042b3221d6db4d7ffb, type: 3}
-  m_Name: BaseEnemy
+  m_Script: {fileID: 11500000, guid: 4421c200d6e03a64dbb173f1bf01b1e1, type: 3}
+  m_Name: EnemyList
   m_EditorClassIdentifier: 
-  nameString: Base Enemy
-  health: 10
-  speed: 10
-  prefab: {fileID: 7903835049651633053, guid: 61563fdb7978e4e4580ea8d005478435, type: 3}
-  behaviors: []
+  list:
+  - {fileID: 11400000, guid: 9671c748cb39bc64e86fc6c135c77769, type: 2}
+  - {fileID: 11400000, guid: 55874ec6c0d23b147acbd2844c6db062, type: 2}

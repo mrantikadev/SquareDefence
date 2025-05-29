@@ -10,13 +10,9 @@ public class TestManager : MonoBehaviour
     public Transform turretSpawnPoint;
     public Transform enemySpawnPoint;
 
-    //[Header("Prefabs")]
-    //public GameObject turretPrefab;
-    //public GameObject enemyPrefab;
-
     [Header("Scriptable Objects")]
-    public List<TurretSO> availableTurrets;
-    public List<EnemySO> availableEnemies;
+    public TurretListSO availableTurrets;
+    public EnemyListSO availableEnemies;
 
     [Header("UI")]
     public GameObject turretPanelObject;
@@ -65,7 +61,7 @@ public class TestManager : MonoBehaviour
 
     private void BuildTurretButtons()
     {
-        foreach (var turret in availableTurrets)
+        foreach (var turret in availableTurrets.list)
         {
             var button = Instantiate(turretButtonPrefab, turretPanelContent);
             button.GetComponentInChildren<TextMeshProUGUI>().text = turret.NameString;
@@ -75,7 +71,7 @@ public class TestManager : MonoBehaviour
 
     private void BuildEnemyButtons()
     {
-        foreach (var enemy in availableEnemies)
+        foreach (var enemy in availableEnemies.list)
         {
             var button = Instantiate(enemyButtonPrefab, enemyPanelContent);
             button.GetComponentInChildren<TextMeshProUGUI>().text = enemy.NameString;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7123285641350404813}
   - component: {fileID: 8852867463665679268}
   m_Layer: 0
-  m_Name: FiringBaseTurret
+  m_Name: PyroTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
