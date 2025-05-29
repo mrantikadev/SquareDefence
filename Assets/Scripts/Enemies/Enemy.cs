@@ -6,6 +6,12 @@ public class Enemy : MonoBehaviour
 {
     public EnemySO config;
     private float currentHealth;
+    private Rigidbody2D rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     private void Start()
     {
@@ -38,5 +44,13 @@ public class Enemy : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    public void ApplyPushBack(Vector2 force)
+    {
+        if (rb != null)
+        {
+            rb.AddForce(force, ForceMode2D.Impulse);
+        }
     }
 }

@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92597c2565675624c949d7ce5eca22f4, type: 3}
-  m_Name: BurningEffect
+  m_Script: {fileID: 11500000, guid: c7d9b87eac7aa914a856ab682af54836, type: 3}
+  m_Name: PushBackEffect
   m_EditorClassIdentifier: 
+  force: 15

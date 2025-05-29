@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     private Vector3 direction;
     private float speed;
     private TurretEffectSO effect;
+    private Enemy target;
 
     public void SetDamage(float dmg) => damage = dmg;
     public void SetDirection(Vector3 dir) => direction = dir;
@@ -16,7 +17,13 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        transform.position += direction * speed * Time.deltaTime;
+        if (target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -26,9 +33,14 @@ public class Bullet : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
-            effect?.ApplyEffect(enemy);
+            effect?.ApplyEffect(enemy, transform.position);
         }
 
         Destroy(gameObject);
+    }
+
+    public void Initialize(Enemy target)
+    {
+        this.target = target;
     }
 }

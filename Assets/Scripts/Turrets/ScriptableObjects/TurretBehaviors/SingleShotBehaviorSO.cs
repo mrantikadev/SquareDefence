@@ -24,6 +24,7 @@ public class SingleShotBehaviorSO : TurretBehaviorSO
         
         if (bullet != null)
         {
+            bullet.Initialize(target);
             bullet.SetDamage(turret.Config.Damage);
             bullet.SetEffect(turret.Config.Effect);
             bullet.SetDirection(direction);

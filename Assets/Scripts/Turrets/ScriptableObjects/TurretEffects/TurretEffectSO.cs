@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class TurretEffectSO : ScriptableObject
 {
-    public abstract void ApplyEffect(Enemy target);
+    public abstract void ApplyEffect(Enemy target, Vector3 sourcePosition);
 }

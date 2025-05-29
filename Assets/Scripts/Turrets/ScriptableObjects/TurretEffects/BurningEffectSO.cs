@@ -9,7 +9,7 @@ public class BurningEffectSO : TurretEffectSO
     public float duration = 3f;
     public GameObject burnEffectPrefab;
     
-    public override void ApplyEffect(Enemy target)
+    public override void ApplyEffect(Enemy target, Vector3 sourcePosition)
     {
         target.StartCoroutine(Burn(target));
     }

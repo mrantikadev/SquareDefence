@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81d5bf963c3141b42b1b1b4c30cb1909, type: 3}
-  m_Name: BaseTurret
+  m_Name: SniperTurret
   m_EditorClassIdentifier: 
-  nameString: Base Turret
-  fireRate: 0.5
-  damage: 5
+  nameString: Sniper Turret
+  fireRate: 1
+  damage: 30
   range: 8
-  bulletSpeed: 30
-  turretPrefab: {fileID: 1069243279930931281, guid: f5fe8a6ab1f74504896a21e180da716f, type: 3}
+  bulletSpeed: 100
+  rotationSpeed: 180
+  turretPrefab: {fileID: 1069243279930931281, guid: 957bff242c9bdd3489c1f471d9dae6b2, type: 3}
   bulletPrefab: {fileID: 7881371968590758442, guid: 6eef27b5a0665dd409b34e2b6a6567e0, type: 3}
   effect: {fileID: 0}
-  behavior: {fileID: 11400000, guid: 5443869b27d6c6c439f2e8a8e41cde3f, type: 2}
+  behavior: {fileID: 11400000, guid: ab6626521bd9ff543a63421453c3ab2e, type: 2}
