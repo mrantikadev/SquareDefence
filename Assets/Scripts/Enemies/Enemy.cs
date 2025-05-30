@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        rb.velocity = new Vector2(rb.velocity.x, -config.Speed);
+
         if (transform.position.y <= -20)
         {
             Die();
@@ -44,13 +46,5 @@ public class Enemy : MonoBehaviour
         }
 
         Destroy(gameObject);
-    }
-
-    public void ApplyPushBack(Vector2 force)
-    {
-        if (rb != null)
-        {
-            rb.AddForce(force, ForceMode2D.Impulse);
-        }
     }
 }

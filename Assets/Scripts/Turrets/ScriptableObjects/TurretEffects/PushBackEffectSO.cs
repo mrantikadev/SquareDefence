@@ -9,7 +9,10 @@ public class PushBackEffectSO : TurretEffectSO
 
     public override void ApplyEffect(Enemy target, Vector3 sourcePosition)
     {
+        var pushable = target.GetComponent<IPushable>();
+        if (pushable == null) return;
+
         Vector2 direction = (target.transform.position - sourcePosition).normalized;
-        target.ApplyPushBack(direction * force);
+        pushable.ApplyPushBack(direction * force);
     }
 }

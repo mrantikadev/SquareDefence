@@ -11,6 +11,7 @@ public class Turret : MonoBehaviour
     private List<Enemy> enemiesInRange = new List<Enemy>();
     private Collider2D rangeCollider;
     private Quaternion initialRotation;
+    private float lockOnTimer = 0f;
 
     private void Awake()
     {
@@ -32,15 +33,28 @@ public class Turret : MonoBehaviour
         {
             RotateTowardsTarget(target.transform.position);
 
-            if (fireCooldown <= 0f)
+            float angleDifference = Quaternion.Angle(transform.rotation, GetTargetRotation(target.transform.position));
+
+            if (angleDifference < Config.RotationTolerance)
             {
-                Config.Behavior.Fire(this, target);
-                fireCooldown = Config.FireRate;
+                lockOnTimer += Time.deltaTime;
+
+                if (fireCooldown <= 0f && lockOnTimer >= Config.LockOnDelay)
+                {
+                    Config.Behavior.Fire(this, target);
+                    fireCooldown = Config.FireRate;
+                    lockOnTimer = 0f;
+                }
+            }
+            else
+            {
+                lockOnTimer = 0f;
             }
         }
         else
         {
             RotateBackToDefault();
+            lockOnTimer = 0f;
         }
     }
 
@@ -105,5 +119,12 @@ public class Turret : MonoBehaviour
             initialRotation,
             Config.RotationSpeed * Time.deltaTime
         );
+    }
+
+    private Quaternion GetTargetRotation(Vector3 targetPosition)
+    {
+        Vector3 direction = targetPosition - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        return Quaternion.Euler(0, 0, angle);
     }
 }

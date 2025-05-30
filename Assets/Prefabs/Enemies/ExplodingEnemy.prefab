@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8230753279991978838}
   - component: {fileID: 4362606895659821526}
   - component: {fileID: 2314864638943294090}
+  - component: {fileID: 6783316055810673308}
   m_Layer: 0
   m_Name: ExplodingEnemy
   m_TagString: Untagged
@@ -141,9 +142,22 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6783316055810673308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7903835049651633053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bea094d1382f494d9d4c3aa6e860f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetTime: 0.3
