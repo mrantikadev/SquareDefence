@@ -16,9 +16,11 @@ MonoBehaviour:
   fireRate: 3
   damage: 5
   range: 6
-  bulletSpeed: 30
-  rotationSpeed: 150
+  bulletSpeed: 10
+  rotationSpeed: 180
   turretPrefab: {fileID: 1069243279930931281, guid: 44d1fb2f77770204baf7941597c781c0, type: 3}
   bulletPrefab: {fileID: 7881371968590758442, guid: 6eef27b5a0665dd409b34e2b6a6567e0, type: 3}
   effect: {fileID: 11400000, guid: 5dc77c5bef7e5c146837c747494d2de2, type: 2}
   behavior: {fileID: 11400000, guid: 5443869b27d6c6c439f2e8a8e41cde3f, type: 2}
+  lockOnDelay: 0.3
+  rotationTolerance: 3

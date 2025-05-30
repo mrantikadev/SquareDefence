@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameString: Base Enemy
   health: 10
-  speed: 10
+  speed: 4
   prefab: {fileID: 7903835049651633053, guid: 61563fdb7978e4e4580ea8d005478435, type: 3}
   behaviors: []

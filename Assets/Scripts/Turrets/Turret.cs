@@ -9,18 +9,19 @@ public class Turret : MonoBehaviour
 
     private float fireCooldown;
     private List<Enemy> enemiesInRange = new List<Enemy>();
-    private Collider2D rangeCollider;
+    private CircleCollider2D rangeCollider;
     private Quaternion initialRotation;
     private float lockOnTimer = 0f;
 
     private void Awake()
     {
         initialRotation = transform.rotation;
+        rangeCollider = GetComponent<CircleCollider2D>();
     }
 
     private void Start()
     {
-        rangeCollider = GetComponent<CircleCollider2D>();
+        rangeCollider.radius = Config.Range;
     }
 
     private void Update()

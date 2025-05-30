@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameString: Exploding Enemy
   health: 10
-  speed: 5
+  speed: 4
   prefab: {fileID: 7903835049651633053, guid: c97f2661be003bb488807cfa7e164409, type: 3}
   behaviors:
   - {fileID: 11400000, guid: 2460979216f119e45b6fd01428e246d0, type: 2}

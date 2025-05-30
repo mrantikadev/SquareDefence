@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d9b87eac7aa914a856ab682af54836, type: 3}
   m_Name: PushBackEffect
   m_EditorClassIdentifier: 
-  force: 15
+  force: 10

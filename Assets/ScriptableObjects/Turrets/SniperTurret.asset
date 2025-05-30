@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: SniperTurret
   m_EditorClassIdentifier: 
   nameString: Sniper Turret
-  fireRate: 1
+  fireRate: 2
   damage: 30
-  range: 8
-  bulletSpeed: 100
+  range: 12
+  bulletSpeed: 20
   rotationSpeed: 180
   turretPrefab: {fileID: 1069243279930931281, guid: 957bff242c9bdd3489c1f471d9dae6b2, type: 3}
   bulletPrefab: {fileID: 7881371968590758442, guid: 6eef27b5a0665dd409b34e2b6a6567e0, type: 3}
   effect: {fileID: 0}
   behavior: {fileID: 11400000, guid: ab6626521bd9ff543a63421453c3ab2e, type: 2}
+  lockOnDelay: 0.3
+  rotationTolerance: 3
