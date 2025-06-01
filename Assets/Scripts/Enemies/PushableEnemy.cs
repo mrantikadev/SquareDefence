@@ -5,38 +5,53 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PushableEnemy : MonoBehaviour, IPushable
 {
-    [SerializeField] private float resetTime = 0.3f;
-    private Rigidbody2D rb;
-    private Vector2 defaultVelocity;
-    private float pushTimer;
-    private bool isPushed;
+    [Header("Configuration")]
+    [SerializeField] private EnemySO config;
 
-    private void Awake()
+    [Header("Push Settings")]
+    [SerializeField] private float pushForce;
+    [SerializeField] private float pushDuration;
+    [SerializeField] private float smoothTime;
+
+    private float pushTimer = 0f;
+    private bool isPushed = false;
+
+    private float normalSpeed;
+    
+    private Vector2 currentVelocity;
+    private Vector2 targetVelocity;
+
+    private Rigidbody2D rb;
+
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        defaultVelocity = rb.velocity;
-        isPushed = false;
+        normalSpeed = config.Speed;
+        targetVelocity = Vector2.down * normalSpeed;
     }
 
-    private void Update()
+    void Update()
     {
         if (isPushed)
         {
-            pushTimer += Time.deltaTime;
+            pushTimer -= Time.deltaTime;
 
-            if (pushTimer >= resetTime)
+            if (pushTimer <= 0f)
             {
-                rb.velocity = defaultVelocity;
                 isPushed = false;
-                pushTimer = 0f;
+                targetVelocity = Vector2.down * normalSpeed;
             }
         }
+
+        rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref currentVelocity, smoothTime);
     }
 
-    public void ApplyPushBack(Vector2 force)
+    public void ApplyPushBack(Vector2 sourcePosition)
     {
-        rb.AddForce(force, ForceMode2D.Impulse);
+        Vector2 direction = ((Vector2)transform.position - sourcePosition).normalized;
+        targetVelocity = direction * pushForce;
+
         isPushed = true;
-        pushTimer = 0f;
+        pushTimer = pushDuration;
     }
 }

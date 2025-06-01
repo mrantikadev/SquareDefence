@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "TurretEffect/PushBack")]
 public class PushBackEffectSO : TurretEffectSO
 {
-    public float force;
+    //public float force;
 
     public override void ApplyEffect(Enemy target, Vector3 sourcePosition)
     {
@@ -13,6 +13,6 @@ public class PushBackEffectSO : TurretEffectSO
         if (pushable == null) return;
 
         Vector2 direction = (target.transform.position - sourcePosition).normalized;
-        pushable.ApplyPushBack(direction * force);
+        pushable.ApplyPushBack(sourcePosition);
     }
 }

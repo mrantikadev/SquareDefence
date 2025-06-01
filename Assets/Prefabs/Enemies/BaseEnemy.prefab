@@ -160,4 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bea094d1382f494d9d4c3aa6e860f81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetTime: 0.3
+  config: {fileID: 11400000, guid: 9671c748cb39bc64e86fc6c135c77769, type: 2}
+  normalSpeed: 3
+  pushForce: 3
+  pushDuration: 1
+  smoothTime: 0.15

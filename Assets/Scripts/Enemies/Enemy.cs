@@ -20,8 +20,6 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = new Vector2(rb.velocity.x, -config.Speed);
-
         if (transform.position.y <= -20)
         {
             Die();
