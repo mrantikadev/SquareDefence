@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8852867463665679268}
   - component: {fileID: 3132446917214021359}
   m_Layer: 0
-  m_Name: BaseTurret
+  m_Name: LaserTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.509434, g: 0.46065062, b: 0, a: 1}
+  m_Color: {r: 0.49056602, g: 0.4759416, b: 0.3443218, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483c9f9cf21282b4bb6fa52064c58527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Config: {fileID: 11400000, guid: 27085d19fe193e04db879d435ae98b95, type: 2}
+  Config: {fileID: 11400000, guid: 0bf03b8ad28fd3648baeb51cc8d1c0c8, type: 2}
   FirePoint: {fileID: 1814945090977784363}
   LaserLine: {fileID: 3132446917214021359}
 --- !u!58 &7123285641350404813

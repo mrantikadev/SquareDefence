@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4362606895659821526}
   - component: {fileID: 2314864638943294090}
   - component: {fileID: 6783316055810673308}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ExplodingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 55874ec6c0d23b147acbd2844c6db062, type: 2}
-  normalSpeed: 2
   pushForce: 3
   pushDuration: 1
   smoothTime: 0.15

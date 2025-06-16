@@ -6,6 +6,7 @@ public class Turret : MonoBehaviour
 {
     public TurretSO Config;
     public Transform FirePoint;
+    public LineRenderer LaserLine;
 
     private float fireCooldown;
     private List<Enemy> enemiesInRange = new List<Enemy>();
@@ -56,6 +57,15 @@ public class Turret : MonoBehaviour
         {
             RotateBackToDefault();
             lockOnTimer = 0f;
+        }
+
+        if (Config.Behavior is LaserBehaviorSO && LaserLine != null)
+        {
+            LaserLine.enabled = true;
+        }
+        else if (LaserLine != null)
+        {
+            LaserLine.enabled = false;
         }
     }
 

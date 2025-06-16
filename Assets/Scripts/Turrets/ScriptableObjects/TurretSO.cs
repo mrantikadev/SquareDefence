@@ -24,6 +24,7 @@ public class TurretSO : ScriptableObject
     [SerializeField] private TurretBehaviorSO behavior;
 
     [Header("Targeting Settings")]
+    [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private float lockOnDelay;
     [SerializeField] private float rotationTolerance;
 
@@ -37,6 +38,7 @@ public class TurretSO : ScriptableObject
     public GameObject BulletPrefab => bulletPrefab;
     public TurretEffectSO Effect => effect;
     public TurretBehaviorSO Behavior => behavior;
+    public LayerMask EnemyLayer => enemyLayer;
     public float LockOnDelay => lockOnDelay;
     public float RotationTolerance => rotationTolerance;
 }
